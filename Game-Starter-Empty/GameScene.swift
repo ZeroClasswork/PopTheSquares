@@ -74,11 +74,11 @@ class GameScene: SKScene {
         let action = SKAction.customAction(withDuration: 2.0, actionBlock: { (square, _) in
             //TODO: Set up the squares animation
             //1. The squares y position should increase by 10
-            SKAction.move(by: CGVector(dx: 0, dy: 10), duration: 2.0)
+            square.position.y += 10
             //2. Create an if statement that checks if the squares y position is >= to the screens height
             if square.position.y >= self.view!.bounds.height {
                 //If it is remove the square and create a new square with the same name
-                self.removeChildren(in: [square])
+                square.removeFromParent()
                 self.createSquares(name: name)
             }
 
